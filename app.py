@@ -2,11 +2,13 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="droptable",
     page_icon="⚡",
 )
+init_streamlit_comm()
 
 def load_data(file):
     data = pd.read_csv(file, encoding='latin-1')
