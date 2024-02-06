@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(
-    page_title="Carysma | Business Intelligence",
+    page_title="droptable",
     page_icon="⚡",
 )
 
