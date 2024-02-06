@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
 import streamlit.components.v1 as components
+from mitosheet.streamlit.v1 import spreadsheet
 
 st.set_page_config(
     page_title="DropTable",
@@ -19,7 +20,7 @@ def main():
     st.title(":blue[Drop]Table")
     st.subheader("Interactive and dynamic data abalytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
-    tab1, tab2  = st.tabs(["Basic visualization", "Advanced Interactive visualization"])
+    tab1, tab2 = st.tabs(["Basic visualization", "Advanced Interactive visualization"])
     with tab1:
         # Upload CSV file through Streamlit
 
@@ -94,6 +95,9 @@ def main():
                     y_axis5 = st.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}", index=None)
                     fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
                     st.plotly_chart(fig)
+            new_dfs, code = spreadsheet(df)
+            st.write(new_dfs)
+            st.code(code)    
             with tab2:
                 @st.cache_resource
                 def get_pyg_html(df: pd.DataFrame) -> str:
