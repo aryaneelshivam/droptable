@@ -91,7 +91,7 @@ def main():
                 def get_pyg_html(df: pd.DataFrame) -> str:
                     # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
                     html = get_streamlit_html(df, use_kernel_calc=True, spec="./spec/geo_vis.json", debug=False)
-                return html
+                    return html
 
                 @st.cache_data
                 def get_df() -> pd.DataFrame:
