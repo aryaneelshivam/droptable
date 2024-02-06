@@ -86,9 +86,9 @@ def main():
                     st.plotly_chart(fig)
         with tab2:
             if uploaded_file is not None:
-            # Load data into a DataFrame
-            df = load_data(uploaded_file)
-            walker = pyg.walk(df, vegaTheme="vega")
+                # Load data into a DataFrame
+                df = load_data(uploaded_file)
+                walker = pyg.walk(df, vegaTheme="vega")
 
 if __name__ == "__main__":
     main()
