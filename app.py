@@ -84,9 +84,7 @@ def main():
                     y_axis5 = st.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}")
                     fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}')
                     st.plotly_chart(fig)
-        with tab2:
-            if uploaded_file is not None:
-                # Load data into a DataFrame
+                    
                 @st.cache_resource
                 def get_pyg_html(df: pd.DataFrame) -> str:
                     # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
