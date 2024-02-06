@@ -93,7 +93,7 @@ def main():
                 html = get_streamlit_html(df, use_kernel_calc=True, debug=False)
                 return html
 
-            components.html(get_pyg_html(df), width=1300, height=1000, scrolling=True)
+            components.html(get_pyg_html(df), scrolling=True)
 
 if __name__ == "__main__":
     main()
