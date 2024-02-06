@@ -39,9 +39,12 @@ def main():
                     y_axis = st.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}", index=None)
                     color = st.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
                     line = st.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
-                    fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
-                    st.plotly_chart(fig)
-                    st.error('This is an error', icon="🚨")
+                    if x_axis or y_axis or color == None:
+                        st.error("Enter columns to visualize")
+                    else:
+                        fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
+                        st.plotly_chart(fig)
+                    
                 elif chart_type == "Histogram":
                     st.write("Select X-axis and Y-axis for Histogram Chart")
                     x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}", index=None)
