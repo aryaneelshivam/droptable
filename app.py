@@ -90,7 +90,7 @@ def main():
                 @st.cache_resource
                 def get_pyg_html(df: pd.DataFrame) -> str:
                     # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
-                    html = get_streamlit_html(df, themeKey="g2-light", use_kernel_calc=True, debug=False)
+                    html = get_streamlit_html(df, use_kernel_calc=True, debug=False)
                     return html
 
                 components.html(get_pyg_html(df), height=915)
