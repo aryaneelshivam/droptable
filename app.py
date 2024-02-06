@@ -86,14 +86,14 @@ def main():
                     y_axis5 = st.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}")
                     fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}')
                     st.plotly_chart(fig)
-                    
-            @st.cache_resource
-            def get_pyg_html(df: pd.DataFrame) -> str:
-                # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
-                html = get_streamlit_html(df, themeKey="g2-light", use_kernel_calc=True, debug=False)
-                return html
+            with Tab2:
+                @st.cache_resource
+                def get_pyg_html(df: pd.DataFrame) -> str:
+                    # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
+                    html = get_streamlit_html(df, themeKey="g2-light", use_kernel_calc=True, debug=False)
+                    return html
 
-            components.html(get_pyg_html(df), height=915)
+                components.html(get_pyg_html(df), height=915)
 
 if __name__ == "__main__":
     main()
