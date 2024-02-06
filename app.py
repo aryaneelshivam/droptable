@@ -87,18 +87,13 @@ def main():
                     fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}')
                     st.plotly_chart(fig)
                     
-                @st.cache_resource
-                def get_pyg_html(df: pd.DataFrame) -> str:
-                    # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
-                    html = get_streamlit_html(df, use_kernel_calc=True, spec="./spec/geo_vis.json", debug=False)
-                    return html
+            @st.cache_resource
+            def get_pyg_html(df: pd.DataFrame) -> str:
+                # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
+                html = get_streamlit_html(df, use_kernel_calc=True, spec="./spec/geo_vis.json", debug=False)
+                return html
 
-                @st.cache_data
-                def get_df() -> pd.DataFrame:
-                    df = load_data(uploaded_file)
-                    return df
-                df = get_df()
-                components.html(get_pyg_html(df), width=1300, height=1000, scrolling=True)
+            components.html(get_pyg_html(df), width=1300, height=1000, scrolling=True)
 
 if __name__ == "__main__":
     main()
