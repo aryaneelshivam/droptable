@@ -37,8 +37,8 @@ def main():
                     st.write("Select attributes for Filled Area Chart")
                     x_axis = st.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}", index=None)
                     y_axis = st.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}", index=None)
-                    color = st.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}")
-                    line = st.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}")
+                    color = st.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
+                    line = st.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
                     fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
                     st.plotly_chart(fig)
                 elif chart_type == "Histogram":
