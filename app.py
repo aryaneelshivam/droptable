@@ -53,7 +53,7 @@ def main():
                     st.plotly_chart(fig)
                 elif chart_type == "Bar Chart":
                     st.write("Select X-axis and Y-axis for Bar Chart")
-                    x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
+                    x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}")
                     y_axis = st.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
                     if x_axis and y_axis == None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
