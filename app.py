@@ -40,8 +40,9 @@ def main():
                     color = st.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
                     line = st.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
                     fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
-                    st.exception("Choose columns to get visual representations")
                     st.plotly_chart(fig)
+                    e = RuntimeError('This is an exception of type RuntimeError')
+                    st.exception(e)
                 elif chart_type == "Histogram":
                     st.write("Select X-axis and Y-axis for Histogram Chart")
                     x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}", index=None)
