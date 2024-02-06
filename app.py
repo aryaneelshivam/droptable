@@ -11,43 +11,6 @@ st.set_page_config(
 )
 init_streamlit_comm()
 
-vis_spec = [
-    "layout": {
-      "showActions": false,
-      "showTableSummary": false,
-      "stack": "stack",
-      "interactiveScale": false,
-      "zeroScale": true,
-      "background": "white",
-      "size": {
-        "mode": "auto",
-        "width": 320,
-        "height": 200
-      },
-      "format": {},
-      "geoKey": "name",
-      "resolve": {
-        "x": false,
-        "y": false,
-        "color": false,
-        "opacity": false,
-        "shape": false,
-        "size": false
-      },
-      "scaleIncludeUnmatchedChoropleth": false,
-      "colorPalette": "tealBlues",
-      "useSvg": false,
-      "scale": {
-        "opacity": {},
-        "size": {}
-      }
-    },
-    "visId": "gw_QcqZ",
-    "name": "Chart 1"
-  }
-]
-
-
 def load_data(file):
     data = pd.read_csv(file, encoding='latin-1')
     return data
