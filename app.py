@@ -35,22 +35,22 @@ def main():
                 st.subheader(f"{chart_type} Visualization")
                 if chart_type == "Area Chart":
                     st.write("Select attributes for Filled Area Chart")
-                    x_axis = st.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}")
-                    y_axis = st.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}")
+                    x_axis = st.selectbox("Select for Area Chart - X", df.columns, key=f"area_x_{chart_type}", index=None)
+                    y_axis = st.selectbox("Select for Area Chart - Y", df.columns, key=f"area_y_{chart_type}", index=None)
                     color = st.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}")
                     line = st.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}")
                     fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
                     st.plotly_chart(fig)
                 elif chart_type == "Histogram":
                     st.write("Select X-axis and Y-axis for Histogram Chart")
-                    x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}")
-                    color = st.selectbox("Select Colour Column", df.columns, key=f"hist_y_{chart_type}")
+                    x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}", index=None)
+                    color = st.selectbox("Select Colour Column", df.columns, key=f"hist_y_{chart_type}", index=None)
                     fig = px.histogram(df, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
                     st.plotly_chart(fig)
                 elif chart_type == "Bar Chart":
                     st.write("Select X-axis and Y-axis for Bar Chart")
-                    x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}")
-                    y_axis = st.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}")
+                    x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
+                    y_axis = st.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
                     fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
                     st.plotly_chart(fig)
                 elif chart_type == "Line Chart":
