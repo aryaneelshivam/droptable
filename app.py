@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 def load_data(file):
-    data = pd.read_csv(file, encoding='latin-1', errors="ignore")
+    data = pd.read_csv(file, encoding='latin-1', error="ignore")
     return data
 
 def main():
