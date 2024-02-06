@@ -87,8 +87,15 @@ def main():
         with tab2:
             if uploaded_file is not None:
                 # Load data into a DataFrame
+                @st.cache_resource
+                def get_pyg_html(df: pd.DataFrame) -> str:
+                    # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
+                    html = get_streamlit_html(df, use_kernel_calc=True, spec="./spec/geo_vis.json", debug=False)
+                return html
+
+                @st.cache_data
+                def get_df() -> pd.DataFrame:
                 df = load_data(uploaded_file)
-                walker = pyg.walk(df, vegaTheme="vega")
 
 if __name__ == "__main__":
     main()
