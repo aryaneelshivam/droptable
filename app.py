@@ -5,7 +5,7 @@ from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
 import streamlit.components.v1 as components
 
 st.set_page_config(
-    page_title="droptable",
+    page_title="DropTable",
     page_icon="⚡",
     layout="wide"
 )
