@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import pygwalker as pyg
+from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
 
 st.set_page_config(
     page_title="droptable",
