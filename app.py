@@ -12,16 +12,6 @@ st.set_page_config(
 init_streamlit_comm()
 
 vis_spec = [
-  {
-    "config": {
-      "defaultAggregated": true,
-      "geoms": [
-        "auto"
-      ],
-      "coordSystem": "generic",
-      "limit": -1,
-      "timezoneDisplayOffset": 0
-    },
     "layout": {
       "showActions": false,
       "showTableSummary": false,
