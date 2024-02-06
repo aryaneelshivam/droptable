@@ -95,7 +95,7 @@ def main():
 
                 @st.cache_data
                 def get_df() -> pd.DataFrame:
-                df = load_data(uploaded_file)
+                    df = load_data(uploaded_file)
 
 if __name__ == "__main__":
     main()
