@@ -96,7 +96,7 @@ def main():
                 @st.cache_data
                 def get_df() -> pd.DataFrame:
                     df = load_data(uploaded_file)
-                    
+                    return df
                 df = get_df()
                 components.html(get_pyg_html(df), width=1300, height=1000, scrolling=True)
 
