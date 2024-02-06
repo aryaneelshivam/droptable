@@ -16,7 +16,7 @@ def load_data(file):
     return data
 
 def main():
-    st.title("DropTable")
+    st.title(":blue[Drop]Table")
     st.subheader("Interactive and dynamic data abalytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
     tab1, tab2  = st.tabs(["Basic visualization", "Advanced Interactive visualization"])
