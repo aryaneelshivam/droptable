@@ -106,7 +106,7 @@ def main():
                     return html
 
                 components.html(get_pyg_html(df), width=1240, height=915)
-                new_dfs, code = spreadsheet(CSV_URL)
+                new_dfs, code = spreadsheet(df)
                 st.write(new_dfs)
                 st.code(code)
 
