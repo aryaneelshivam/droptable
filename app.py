@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import pygwalker as pyg
 
 st.set_page_config(
     page_title="droptable",
@@ -83,6 +84,11 @@ def main():
                     y_axis5 = st.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}")
                     fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}')
                     st.plotly_chart(fig)
+        with tab2:
+            if uploaded_file is not None:
+            # Load data into a DataFrame
+            df = load_data(uploaded_file)
+            walker = pyg.walk(df, vegaTheme="vega")
 
 if __name__ == "__main__":
     main()
