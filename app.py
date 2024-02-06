@@ -40,7 +40,7 @@ def main():
                     color = st.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
                     line = st.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
                     if x_axis and y_axis and color == None:
-                        st.error("Enter columns to visualize")
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
                         st.plotly_chart(fig)
@@ -55,8 +55,11 @@ def main():
                     st.write("Select X-axis and Y-axis for Bar Chart")
                     x_axis = st.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
                     y_axis = st.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
-                    fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
-                    st.plotly_chart(fig)
+                    if x_axis and y_axis == None:
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    else: 
+                        fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
+                        st.plotly_chart(fig)
                 elif chart_type == "Line Chart":
                     st.write("Select X-axis and Y-axis for Line Chart")
                     x_axis1 = st.selectbox("Select for Line Chart - X", df.columns, key=f"line_x_{chart_type}", index=None)
