@@ -18,8 +18,12 @@ def load_data(file):
     return data
 
 def main():
-    selected = option_menu(["DropTable AI", 'About'], 
-    icons=['house', 'gear'], menu_icon="cast", default_index=1)
+    selected = option_menu(
+        menu_title = None,
+        options = ["Home","DropTable AI", "About"],
+        default_index = 1,
+        orientation = "horizontal",
+    )
     st.title(":blue[Drop]Table")
     st.subheader("Interactive and dynamic data abalytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
