@@ -20,7 +20,7 @@ def load_data(file):
 def main():
     selected = option_menu(
         menu_title = None,
-        options = ["Home","DropTable AI", "About"],
+        options = ["Home","DropAI", "About"],
         default_index = 0,
         orientation = "horizontal",
         icons = ["house","book","phone"]
