@@ -4,6 +4,7 @@ import plotly.express as px
 from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
 import streamlit.components.v1 as components
 from mitosheet.streamlit.v1 import spreadsheet
+from streamlit_option_menu import option_menu
 
 st.set_page_config(
     page_title="DropTable",
@@ -17,6 +18,9 @@ def load_data(file):
     return data
 
 def main():
+    selected = option_menu("Main Menu", ["Home", 'Settings'], 
+    icons=['house', 'gear'], menu_icon="cast", default_index=1)
+    selected
     st.title(":blue[Drop]Table")
     st.subheader("Interactive and dynamic data abalytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
