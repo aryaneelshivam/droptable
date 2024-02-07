@@ -22,8 +22,8 @@ def main():
         menu_title = None,
         options = ["Home","DropTable AI", "About"],
         default_index = 0,
-        orientation = "vertical",
-        icons = ["home","book","phone"]
+        orientation = "horizontal",
+        icons = ["house","book","phone"]
     )
     st.title(":blue[Drop]Table")
     st.subheader("Interactive and dynamic data abalytics visualization dashboard")
