@@ -23,7 +23,7 @@ def main():
         options = ["Home","DropAI", "About"],
         default_index = 0,
         orientation = "horizontal",
-        icons = ["house","book","phone"]
+        icons = ["house","book","phone"],
         styles = {
         "container":{"background-color":"white"}
         },
