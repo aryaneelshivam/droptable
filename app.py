@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 init_streamlit_comm()
-@st.cache
+
 def load_data(file):
     data = pd.read_csv(file, encoding='latin-1')
     return data
