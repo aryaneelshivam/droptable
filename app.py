@@ -49,7 +49,7 @@ def main():
                     color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"area_c_{chart_type}", index=None)
                     line = st.sidebar.selectbox("Select Line Column", df.columns, key=f"area_l_{chart_type}", index=None)
                     st.sidebar.divider()
-                    if x_axis or y_axis or color or line == None:
+                    if x_axis is None or y_axis is None or color is None or line is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
