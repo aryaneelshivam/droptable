@@ -23,10 +23,7 @@ def main():
         options = ["Home","DropAI", "About"],
         default_index = 0,
         orientation = "horizontal",
-        icons = ["house","book","phone"],
-        styles = {
-        "container":{"background-color":"white"}
-        },
+        icons = ["house","book","phone"]
     )
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
