@@ -9,7 +9,7 @@ from streamlit_option_menu import option_menu
 st.set_page_config(
     page_title="DropTable",
     page_icon="💧",
-    layout="wide"
+    #layout="wide"
 )
 init_streamlit_comm()
 @st.cache
