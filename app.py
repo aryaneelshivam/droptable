@@ -67,7 +67,7 @@ def main():
                         st.plotly_chart(fig)
                 elif chart_type == "Bar Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Bar Chart")
-                    x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}")
+                    x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}", index=None)
                     y_axis = st.sidebar.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
                     st.sidebar.divider()
                     if x_axis is None or y_axis is None:
