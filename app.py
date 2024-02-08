@@ -131,9 +131,6 @@ def main():
                     else:
                         fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
                         st.plotly_chart(fig)
-            new_dfs, code = spreadsheet(df)
-            st.write(new_dfs)
-            st.code(code)    
             with tab2:
                 @st.cache_resource
                 def get_pyg_html(df: pd.DataFrame) -> str:
