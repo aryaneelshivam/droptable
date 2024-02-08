@@ -60,14 +60,17 @@ def main():
                     x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"hist_x_{chart_type}", index=None)
                     color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"hist_y_{chart_type}", index=None)
                     st.sidebar.divider()
-                    fig = px.histogram(df, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
-                    st.plotly_chart(fig)
+                    if x_axis is None or color is None:
+                        st.error("Either cant build relationship with hiven columns or Column(s) are empty")
+                    else:
+                        fig = px.histogram(df, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
+                        st.plotly_chart(fig)
                 elif chart_type == "Bar Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Bar Chart")
                     x_axis = st.sidebar.selectbox("Select for Bar Chart - X", df.columns, key=f"bar_x_{chart_type}")
                     y_axis = st.sidebar.selectbox("Select for Bar Chart - Y", df.columns, key=f"bar_y_{chart_type}", index=None)
                     st.sidebar.divider()
-                    if x_axis and y_axis == None:
+                    if x_axis is None or y_axis is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else: 
                         fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
@@ -75,17 +78,23 @@ def main():
                 elif chart_type == "Line Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Line Chart")
                     x_axis1 = st.sidebar.selectbox("Select for Line Chart - X", df.columns, key=f"line_x_{chart_type}", index=None)
-                    y_axis2 = st.sidebar.selectbox("Select for Line Chart - Y", df.columns, key=f"line_y_{chart_type}", index=None)
+                    y_axis1 = st.sidebar.selectbox("Select for Line Chart - Y", df.columns, key=f"line_y_{chart_type}", index=None)
                     st.sidebar.divider()
-                    fig = px.line(df, x=x_axis1, y=y_axis2, width=1240)
-                    st.plotly_chart(fig)
+                    if x_axis1 is None or y_axis1 is None:
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    else:
+                        fig = px.line(df, x=x_axis1, y=y_axis2, width=1240)
+                        st.plotly_chart(fig)
                 elif chart_type == "Scatter Plot":
                     st.sidebar.write("Select X-axis and Y-axis for Scatter Plot Chart")
                     x_axis3 = st.sidebar.selectbox("Select for Scatter Plot - X", df.columns, key=f"scatter_x_{chart_type}", index=None)
                     y_axis3 = st.sidebar.selectbox("Select for Scatter Plot - Y", df.columns, key=f"scatter_y_{chart_type}", index=None)
                     st.sidebar.divider()
-                    fig = px.scatter(df, x=x_axis3, y=y_axis3, width=1240)
-                    st.plotly_chart(fig)
+                    if x_axis3 is None or y_axis3 is None:
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    else:
+                        fig = px.scatter(df, x=x_axis3, y=y_axis3, width=1240)
+                        st.plotly_chart(fig)
                 elif chart_type == "Pie Chart":
                     selected_column = st.sidebar.selectbox("Select Column for Pie Chart", df.columns, key=f"pie_column_{chart_type}", index=None)
                     st.sidebar.divider()
@@ -97,22 +106,31 @@ def main():
                     y_axis4 = st.sidebar.selectbox("Select for Bubble Chart - Y", df.columns, key=f"bubble_y_{chart_type}", index=None)
                     size_column = st.sidebar.selectbox("Select Size Column", df.columns, key=f"bubble_size_{chart_type}", index=None)
                     st.sidebar.divider()
-                    fig = px.scatter(df, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
-                    st.plotly_chart(fig)
+                    if x_axis4 is None or y_axis4 is None or size_column is None:
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    else:
+                        fig = px.scatter(df, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
+                        st.plotly_chart(fig)
                 elif chart_type == "Sunburst Chart":
                     st.sidebar.write("Select X-axis and Y-axis for SunBurst Chart")
                     hierarchy_column = st.sidebar.selectbox("Select Hierarchy Column", df.columns, key=f"sunburst_hierarchy_{chart_type}", index=None)
                     values_column = st.sidebar.selectbox("Select Values Column", df.columns, key=f"sunburst_values_{chart_type}", index=None)
-                    fig = px.sunburst(df, path=[hierarchy_column], values=values_column, title=f'Sunburst Chart for {hierarchy_column} and {values_column}', width=1240)
                     st.sidebar.divider()
-                    st.plotly_chart(fig)
+                    if hierarchy_column is None or values_column is None:
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    else:
+                        fig = px.sunburst(df, path=[hierarchy_column], values=values_column, title=f'Sunburst Chart for {hierarchy_column} and {values_column}', width=1240)
+                        st.plotly_chart(fig)
                 elif chart_type == "Dot Plot":
                     st.sidebar.write("Select X-axis and Y-axis for Dot Plot Chart")
                     x_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - X", df.columns, key=f"dot_x_{chart_type}", index=None)
                     y_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - Y", df.columns, key=f"dot_y_{chart_type}", index=None)
                     st.sidebar.divider()
-                    fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
-                    st.plotly_chart(fig)
+                    if x_axis5 is None or y_axis5 is None:
+                         st.error("Either cant build relationship with given columns or Column(s) are empty")
+                    else:
+                        fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
+                        st.plotly_chart(fig)
             new_dfs, code = spreadsheet(df)
             st.write(new_dfs)
             st.code(code)    
