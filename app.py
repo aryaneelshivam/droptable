@@ -24,6 +24,9 @@ def main():
         default_index = 0,
         orientation = "horizontal",
         icons = ["house","book","phone"]
+        styles = {
+        "container":{"background-color":"white"}
+        },
     )
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
