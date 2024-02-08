@@ -139,9 +139,6 @@ def main():
                     return html
 
                 components.html(get_pyg_html(df), width=1240, height=915)
-                new_dfs, code = spreadsheet(df, key=f"new")
-                st.write(new_dfs)
-                st.code(code)
 
 if __name__ == "__main__":
     main()
