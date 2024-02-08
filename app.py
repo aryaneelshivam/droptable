@@ -16,7 +16,7 @@ init_streamlit_comm()
 def load_data(file):
     data = pd.read_csv(file, encoding='latin-1')
     return data
-@st.cache    
+   
 def main():
     selected = option_menu(
         menu_title = None,
