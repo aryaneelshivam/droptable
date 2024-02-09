@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
-import PIL.image
+from PIL import Image
 
 st.set_page_config(
     page_title="DropTable",
