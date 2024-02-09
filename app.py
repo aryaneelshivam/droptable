@@ -29,7 +29,7 @@ def main():
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
-    tab1, tab2 = st.tabs(["Basic visualization", "Advanced Interactive visualization"])
+    tab1, tab2, tab3 = st.tabs(["Basic visualization", "Advanced Interactive visualization", "DropAI analysis"])
     with tab1:
         # Upload CSV file through Streamlit
 
@@ -140,6 +140,8 @@ def main():
                     return html
 
                 components.html(get_pyg_html(df), width=1240, height=915)
+            with tab3:
+               img = st.file_uploader("Choose a CSV file") 
 
 if __name__ == "__main__":
     main()
