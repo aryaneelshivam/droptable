@@ -143,7 +143,7 @@ def main():
                 components.html(get_pyg_html(df), width=1240, height=915)
             with tab3:
                input = st.file_uploader("Choose a CSV file", type=['png'])
-               img = PIL.Image.open(input)
+               img = Image.open(input)
                Google = 'AIzaSyDtl-9-hd5-JIXTnrYhf57_lQKsXm3Ksp0'
                genai.configure(api_key=Google)
                model = genai.GenerativeModel('gemini-pro-vision')
