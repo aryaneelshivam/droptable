@@ -4,3 +4,4 @@ plotly
 pygwalker
 mitosheet
 streamlit-option-menu
+google-generativeai
