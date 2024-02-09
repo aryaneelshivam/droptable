@@ -6,6 +6,7 @@ import streamlit.components.v1 as components
 from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
+import PIL.image
 
 st.set_page_config(
     page_title="DropTable",
@@ -141,7 +142,8 @@ def main():
 
                 components.html(get_pyg_html(df), width=1240, height=915)
             with tab3:
-               img = st.file_uploader("Choose a CSV file", type=['png'])
+               input = st.file_uploader("Choose a CSV file", type=['png'])
+               img = PIL.Image.open(input)
                Google = 'AIzaSyDtl-9-hd5-JIXTnrYhf57_lQKsXm3Ksp0'
                genai.configure(api_key=Google)
                model = genai.GenerativeModel('gemini-pro-vision')
