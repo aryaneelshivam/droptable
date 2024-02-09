@@ -5,6 +5,7 @@ from pygwalker.api.streamlit import init_streamlit_comm, get_streamlit_html
 import streamlit.components.v1 as components
 from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
+import google.generativeai as genai
 
 st.set_page_config(
     page_title="DropTable",
