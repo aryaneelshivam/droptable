@@ -150,7 +150,7 @@ def main():
                    model = genai.GenerativeModel('gemini-pro-vision')
                    response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it", img])
                    st.image(input)
-                   st.write(response.text)
+                   st.markdown(response.text)
 
 if __name__ == "__main__":
     main()
