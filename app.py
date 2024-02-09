@@ -20,13 +20,13 @@ def load_data(file):
     return data
    
 def main():
-    selected = option_menu(
-        menu_title = None,
-        options = ["Home","DropAI", "About"],
-        default_index = 0,
-        orientation = "horizontal",
-        icons = ["house","book","phone"]
-    )
+    #selected = option_menu(
+       # menu_title = None,
+        #options = ["Home","DropAI", "About"],
+        #default_index = 0,
+        #orientation = "horizontal",
+        #icons = ["house","book","phone"]
+    #)
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
