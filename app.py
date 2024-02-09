@@ -30,7 +30,7 @@ def main():
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
-    tab1, tab2, tab3 = st.tabs(["Basic visualization", "Advanced Interactive visualization", "DropAI analysis"])
+    tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
     with tab1:
         # Upload CSV file through Streamlit
 
@@ -133,7 +133,7 @@ def main():
                     else:
                         fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
                         st.plotly_chart(fig)
-            with tab2:
+            with tab3:
                 @st.cache_resource
                 def get_pyg_html(df: pd.DataFrame) -> str:
                     # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
@@ -141,7 +141,7 @@ def main():
                     return html
 
                 components.html(get_pyg_html(df), width=1240, height=915)
-            with tab3:
+            with tab2:
                input = st.file_uploader("Choose a CSV file", type=['png'])
                img = Image.open(input)
                Google = 'AIzaSyDtl-9-hd5-JIXTnrYhf57_lQKsXm3Ksp0'
