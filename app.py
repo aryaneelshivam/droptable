@@ -143,7 +143,6 @@ def main():
             with tab3:
                img = st.file_uploader("Choose a CSV file")
                Google = 'AIzaSyDtl-9-hd5-JIXTnrYhf57_lQKsXm3Ksp0'
-               img = st.image('img.png')
                genai.configure(api_key=Google)
                model = genai.GenerativeModel('gemini-pro')
                response = model.generate_content(["Read this graph and analyse it and understand the data and insights it is trying to show and explain eveything properly", img])
