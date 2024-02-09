@@ -147,7 +147,7 @@ def main():
                Google = 'AIzaSyDtl-9-hd5-JIXTnrYhf57_lQKsXm3Ksp0'
                genai.configure(api_key=Google)
                model = genai.GenerativeModel('gemini-pro-vision')
-               response = model.generate_content(["Read this graph and analyse it and understand the data and insights it is trying to show and explain eveything properly", img])
+               response = model.generate_content(["Read this graph and analyse the visualization and derive insights all in bulleted points", img])
                st.image(input)
                st.write(response.text)
 
