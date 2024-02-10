@@ -28,7 +28,7 @@ def main():
         #icons = ["house","book","phone"]
     #)
     st.title(":blue[Drop]Table")
-    st.header(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
+    st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
     with tab1:
@@ -160,7 +160,7 @@ def main():
 
                 components.html(get_pyg_html(df), width=1240, height=915)
     with tab2:
-        st.subheader("DropAI generates valuable insights from your graphs with just a single-click 🍻")
+        st.subheader(":blue[DropAI] generates valuable insights from your graphs with just a single-click 🍻")
         input = st.file_uploader("Choose a .png or .jpg file", type=['png'])
         if input is not None:
             img = Image.open(input)
