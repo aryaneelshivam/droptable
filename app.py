@@ -160,7 +160,7 @@ def main():
 
                 components.html(get_pyg_html(df), width=1240, height=915)
     with tab2:
-        st.subheader(":blue[DropAI] generates valuable insights from your graphs with just a single-click 🍻")
+        st.text(":blue[DropAI] generates valuable insights from your graphs with just a single-click 🍻")
         input = st.file_uploader("Choose a .png or .jpg file", type=['png'])
         if input is not None:
             img = Image.open(input)
