@@ -148,9 +148,11 @@ def main():
                    Google = 'AIzaSyDtl-9-hd5-JIXTnrYhf57_lQKsXm3Ksp0'
                    genai.configure(api_key=Google)
                    model = genai.GenerativeModel('gemini-pro-vision')
-                   response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it", img])
-                   st.image(input)
-                   st.markdown(response.text)
+                   with st.spinner("Sending and fetching data through DropAI"):
+                       response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it", img])
+                       st.success("Analysis done 👌")
+                       st.image(input)
+                       st.markdown(response.text)
 
 if __name__ == "__main__":
     main()
