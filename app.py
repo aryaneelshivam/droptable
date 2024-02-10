@@ -29,7 +29,7 @@ def main():
     #)
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
-    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv","XLSX"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
     with tab1:
         # Upload CSV file through Streamlit
