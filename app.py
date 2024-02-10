@@ -54,8 +54,9 @@ def main():
                     if x_axis is None or y_axis is None or color is None or line is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
-                        fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Graph visualized!', icon='🎉')
                     
                 elif chart_type == "Histogram":
@@ -66,8 +67,9 @@ def main():
                     if x_axis is None or color is None:
                         st.error("Either cant build relationship with hiven columns or Column(s) are empty")
                     else:
-                        fig = px.histogram(df, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.histogram(df, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
                 elif chart_type == "Bar Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Bar Chart")
@@ -76,9 +78,10 @@ def main():
                     st.sidebar.divider()
                     if x_axis is None or y_axis is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
-                    else: 
-                        fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
-                        st.plotly_chart(fig)
+                    else:
+                        with st.spinner("Generating chart..."):
+                            fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
+                            st.plotly_chart(fig)
                         st.toast('We did it!', icon='🎉')
                 elif chart_type == "Line Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Line Chart")
@@ -88,8 +91,9 @@ def main():
                     if x_axis1 is None or y_axis1 is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
-                        fig = px.line(df, x=x_axis1, y=y_axis2, width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.line(df, x=x_axis1, y=y_axis2, width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
                 elif chart_type == "Scatter Plot":
                     st.sidebar.write("Select X-axis and Y-axis for Scatter Plot Chart")
@@ -99,14 +103,16 @@ def main():
                     if x_axis3 is None or y_axis3 is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
-                        fig = px.scatter(df, x=x_axis3, y=y_axis3, width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.scatter(df, x=x_axis3, y=y_axis3, width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Another victory', icon='🥇')
                 elif chart_type == "Pie Chart":
                     selected_column = st.sidebar.selectbox("Select Column for Pie Chart", df.columns, key=f"pie_column_{chart_type}", index=None)
                     st.sidebar.divider()
-                    fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}', width=1240)
-                    st.plotly_chart(fig)
+                    with st.spinner("Generating chart..."):
+                        fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}', width=1240)
+                        st.plotly_chart(fig)
                     st.toast('Winning streak!', icon='🏆')
                 elif chart_type == "Bubble Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Bubble Chart")
@@ -117,8 +123,9 @@ def main():
                     if x_axis4 is None or y_axis4 is None or size_column is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
-                        fig = px.scatter(df, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.scatter(df, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Bubbles and soap!', icon='🧼')
                 elif chart_type == "Sunburst Chart":
                     st.sidebar.write("Select X-axis and Y-axis for SunBurst Chart")
@@ -128,8 +135,9 @@ def main():
                     if hierarchy_column is None or values_column is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
-                        fig = px.sunburst(df, path=[hierarchy_column], values=values_column, title=f'Sunburst Chart for {hierarchy_column} and {values_column}', width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.sunburst(df, path=[hierarchy_column], values=values_column, title=f'Sunburst Chart for {hierarchy_column} and {values_column}', width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Sun-Bursted!', icon='☀')
                 elif chart_type == "Dot Plot":
                     st.sidebar.write("Select X-axis and Y-axis for Dot Plot Chart")
@@ -139,8 +147,9 @@ def main():
                     if x_axis5 is None or y_axis5 is None:
                          st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
-                        fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
-                        st.plotly_chart(fig)
+                        with st.spinner("Generating chart..."):
+                            fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
+                            st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
             with tab3:
                 @st.cache_resource
