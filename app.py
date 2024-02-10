@@ -171,6 +171,7 @@ def main():
                 response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it", img])
                 st.success("Analysis done 👌")
                 st.toast('Hooray!', icon='🎉')
+                st.balloons()
                 st.image(input)
                 st.markdown(response.text)
 
