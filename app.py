@@ -171,7 +171,7 @@ def main():
 
                 components.html(get_pyg_html(df), width=1240, height=915)
     with tab2:
-        st.subheader(":blue[DropAI] generates valuable :blue[insights] from your charts with a :green[single-click] 🍻")
+        st.info("DropAI is a specially integrated AI using GoogleGenAI's Gemini-vision-pro model to analyse charts accurately", icon="💡")
         input = st.file_uploader("Choose a .png or .jpg file", type=['png'])
         if input is not None:
             img = Image.open(input)
