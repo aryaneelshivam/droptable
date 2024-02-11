@@ -32,12 +32,16 @@ def main():
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv","XLSX"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
     with tab1:
+        if uploaded_file is None:
+            st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
         # Upload CSV file through Streamlit
 
         if uploaded_file is not None:
 
             # Load data into a DataFrame
             df = load_data(uploaded_file)
+            with st.expander("Click to expand uploaded datasheet 📜"):
+                st.dataframe(df)
 
             # Plot based on user selection
             chart_types = st.multiselect("Select Chart Types", ["Bar Chart", "Line Chart", "Scatter Plot", "Pie Chart", "Bubble Chart", "Sunburst Chart", "Dot Plot", "Histogram", "Area Chart"])
@@ -55,7 +59,8 @@ def main():
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.area(df, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
+                            df_sort = df.sort_values(by=x_axis)
+                            fig = px.area(df_sort, x=x_axis, y=y_axis, color=color, line_group=line,title="Stacked filled area chart comparing sales with product line against order dates.", width=1240)
                             st.plotly_chart(fig)
                         st.toast('Graph visualized!', icon='🎉')
                     
@@ -68,7 +73,8 @@ def main():
                         st.error("Either cant build relationship with hiven columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.histogram(df, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
+                            df_sort = df.sort_values(by=x_axis)
+                            fig = px.histogram(df_sort, x=x_axis, color=color, title='Order Status Distribution Over Time', width=1240)
                             st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
                 elif chart_type == "Bar Chart":
@@ -80,7 +86,8 @@ def main():
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.bar(df, x=x_axis, y=y_axis, width=1240)
+                            df_sort = df.sort_values(by=x_axis)
+                            fig = px.bar(df_sort, x=x_axis, y=y_axis, width=1240)
                             st.plotly_chart(fig)
                         st.toast('We did it!', icon='🎉')
                 elif chart_type == "Line Chart":
@@ -92,7 +99,8 @@ def main():
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.line(df, x=x_axis1, y=y_axis2, width=1240)
+                            df_sort = df.sort_values(by=x_axis1)
+                            fig = px.line(df_sort, x=x_axis1, y=y_axis1, width=1240)
                             st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
                 elif chart_type == "Scatter Plot":
@@ -104,7 +112,8 @@ def main():
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.scatter(df, x=x_axis3, y=y_axis3, width=1240)
+                            df_sort = df.sort_values(by=x_axis3)
+                            fig = px.scatter(df_sort, x=x_axis3, y=y_axis3, width=1240)
                             st.plotly_chart(fig)
                         st.toast('Another victory', icon='🥇')
                 elif chart_type == "Pie Chart":
@@ -124,7 +133,8 @@ def main():
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.scatter(df, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
+                            df_sort = df.sort_values(by=x_axis4)
+                            fig = px.scatter(df_sort, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
                             st.plotly_chart(fig)
                         st.toast('Bubbles and soap!', icon='🧼')
                 elif chart_type == "Sunburst Chart":
@@ -148,7 +158,8 @@ def main():
                          st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
-                            fig = px.scatter(df, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
+                            df_sort = df.sort_values(by=x_axis5)
+                            fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
                             st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
             with tab3:
