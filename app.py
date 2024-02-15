@@ -44,7 +44,7 @@ def main():
                 st.dataframe(df)
 
             # Plot based on user selection
-            chart_types = st.multiselect("Select Chart Types", ["Bar Chart", "Line Chart", "Scatter Plot", "Pie Chart", "Bubble Chart", "Sunburst Chart", "Dot Plot", "Histogram", "Area Chart"])
+            chart_types = st.multiselect("Select Chart Types", ["Bar Chart", "Stacked Bar Chart","Line Chart", "Scatter Plot", "Pie Chart", "Sunburst Chart", "Dot Plot", "Histogram", "Area Chart"])
             
             for chart_type in chart_types:
                 st.subheader(f"{chart_type} Visualization")
@@ -123,18 +123,18 @@ def main():
                         fig = px.pie(df, names=selected_column, title=f'Pie Chart for {selected_column}', width=1240)
                         st.plotly_chart(fig)
                     st.toast('Winning streak!', icon='🏆')
-                elif chart_type == "Bubble Chart":
+                elif chart_type == "Stacked Bar Chart":
                     st.sidebar.write("Select X-axis and Y-axis for Bubble Chart")
-                    x_axis4 = st.sidebar.selectbox("Select for Bubble Chart - X", df.columns, key=f"bubble_x_{chart_type}", index=None)
-                    y_axis4 = st.sidebar.selectbox("Select for Bubble Chart - Y", df.columns, key=f"bubble_y_{chart_type}", index=None)
-                    size_column = st.sidebar.selectbox("Select Size Column", df.columns, key=f"bubble_size_{chart_type}", index=None)
+                    x_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - X", df.columns, key=f"stacked_x_{chart_type}", index=None)
+                    y_axis4 = st.sidebar.selectbox("Select for Stacked Bar Chart - Y", df.columns, key=f"stacked_y_{chart_type}", index=None)
+                    color = st.sidebar.selectbox("Select Color Column", df.columns, key=f"stacked_size_{chart_type}", index=None)
                     st.sidebar.divider()
-                    if x_axis4 is None or y_axis4 is None or size_column is None:
+                    if x_axis4 is None or y_axis4 is None or color is None:
                         st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
                             df_sort = df.sort_values(by=x_axis4)
-                            fig = px.scatter(df_sort, x=x_axis4, y=y_axis4, size=size_column, title=f'Bubble Chart for {x_axis4}, {y_axis4}, {size_column}', width=1240)
+                            fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}', width=1240)
                             st.plotly_chart(fig)
                         st.toast('Bubbles and soap!', icon='🧼')
                 elif chart_type == "Sunburst Chart":
