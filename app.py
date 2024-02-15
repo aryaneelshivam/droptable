@@ -70,7 +70,7 @@ def main():
                     color = st.sidebar.selectbox("Select Colour Column", df.columns, key=f"hist_y_{chart_type}", index=None)
                     st.sidebar.divider()
                     if x_axis is None or color is None:
-                        st.error("Either cant build relationship with hiven columns or Column(s) are empty")
+                        st.error("Either cant build relationship with given columns or Column(s) are empty")
                     else:
                         with st.spinner("Generating chart..."):
                             df_sort = df.sort_values(by=x_axis)
