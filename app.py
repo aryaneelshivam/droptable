@@ -33,7 +33,7 @@ def main():
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv","XLSX"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
-    st.sidebar("Login and Subscribe to DropTable to access full functionality and generative-ai features, along with advanced chart visualization.")
+    st.sidebar.write("Login and Subscribe to DropTable to access full functionality and generative-ai features, along with advanced chart visualization.")
     st.sidebar.divider()
     with tab1:
         if uploaded_file is None:
