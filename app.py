@@ -12,7 +12,8 @@ from st_paywall import add_auth
 st.set_page_config(
     page_title="DropTable",
     page_icon="💧",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded",
 )
 init_streamlit_comm()
 
@@ -32,6 +33,8 @@ def main():
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv","XLSX"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
+    st.sidebar("Login and Subscribe to DropTable to access full functionality and generative-ai features, along with advanced chart visualization.")
+    st.sidebar.divider()
     with tab1:
         if uploaded_file is None:
             st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
