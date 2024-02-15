@@ -154,15 +154,18 @@ def main():
                             fig = px.scatter(df_sort, x=x_axis5, y=y_axis5, title=f'Dot Plot for {x_axis5} and {y_axis5}', width=1240)
                             st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
-            with tab3:
-                with add_auth(required=True):
-                    @st.cache_resource
-                    def get_pyg_html(df: pd.DataFrame) -> str:
+    with tab3:
+        with add_auth(required=True):
+            if uploaded_file is None:
+                st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
+            if uploaded_file is not None:
+                @st.cache_resource
+                def get_pyg_html(df: pd.DataFrame) -> str:
                     # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
-                        html = get_streamlit_html(df, dark="light", use_kernel_calc=True, debug=False)
-                        return html
+                    html = get_streamlit_html(df, dark="light", use_kernel_calc=True, debug=False)
+                    return html
 
-                    components.html(get_pyg_html(df), width=1240, height=915)
+                components.html(get_pyg_html(df), width=1240, height=915)
     with tab2:
         st.info("DropAI is a specially integrated AI using GoogleGenAI's Gemini-vision-pro model to analyse charts accurately", icon="💡")
         input = st.file_uploader("Choose a .png or .jpg file", type=['png'])
