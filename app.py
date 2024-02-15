@@ -137,18 +137,6 @@ def main():
                             fig = px.bar(df_sort, x=x_axis4, y=y_axis4, color=color, title=f'Stacked Bar Chart for {x_axis4}, {y_axis4}, {color}', width=1240)
                             st.plotly_chart(fig)
                         st.toast('Bubbles and soap!', icon='🧼')
-                elif chart_type == "Sunburst Chart":
-                    st.sidebar.write("Select X-axis and Y-axis for SunBurst Chart")
-                    hierarchy_column = st.sidebar.selectbox("Select Hierarchy Column", df.columns, key=f"sunburst_hierarchy_{chart_type}", index=None)
-                    values_column = st.sidebar.selectbox("Select Values Column", df.columns, key=f"sunburst_values_{chart_type}", index=None)
-                    st.sidebar.divider()
-                    if hierarchy_column is None or values_column is None:
-                        st.error("Either cant build relationship with given columns or Column(s) are empty")
-                    else:
-                        with st.spinner("Generating chart..."):
-                            fig = px.sunburst(df, path=[hierarchy_column], values=values_column, title=f'Sunburst Chart for {hierarchy_column} and {values_column}', width=1240)
-                            st.plotly_chart(fig)
-                        st.toast('Sun-Bursted!', icon='☀')
                 elif chart_type == "Dot Plot":
                     st.sidebar.write("Select X-axis and Y-axis for Dot Plot Chart")
                     x_axis5 = st.sidebar.selectbox("Select for Dot Plot Chart - X", df.columns, key=f"dot_x_{chart_type}", index=None)
