@@ -7,6 +7,7 @@ from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
 from PIL import Image
+from st_paywall import add_auth
 
 st.set_page_config(
     page_title="DropTable",
@@ -151,13 +152,14 @@ def main():
                             st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
             with tab3:
-                @st.cache_resource
-                def get_pyg_html(df: pd.DataFrame) -> str:
+                with add_auth(required=True):
+                    @st.cache_resource
+                    def get_pyg_html(df: pd.DataFrame) -> str:
                     # When you need to publish your application, you need set `debug=False`,prevent other users to write your config file.
-                    html = get_streamlit_html(df, dark="light", use_kernel_calc=True, debug=False)
-                    return html
+                        html = get_streamlit_html(df, dark="light", use_kernel_calc=True, debug=False)
+                        return html
 
-                components.html(get_pyg_html(df), width=1240, height=915)
+                    components.html(get_pyg_html(df), width=1240, height=915)
     with tab2:
         st.info("DropAI is a specially integrated AI using GoogleGenAI's Gemini-vision-pro model to analyse charts accurately", icon="💡")
         input = st.file_uploader("Choose a .png or .jpg file", type=['png'])
