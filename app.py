@@ -7,7 +7,6 @@ from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
 from PIL import Image
-from st_paywall import add_auth
 
 st.set_page_config(
     page_title="DropTable",
@@ -155,7 +154,6 @@ def main():
                             st.plotly_chart(fig)
                         st.toast('Hooray!', icon='🎉')
     with tab3:
-        add_auth(required=True)
         if uploaded_file is None:
             st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
         if uploaded_file is not None:
