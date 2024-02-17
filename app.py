@@ -170,7 +170,7 @@ def main():
             genai.configure(api_key=Google)
             model = genai.GenerativeModel('gemini-pro-vision')
             with st.spinner("Sending and fetching data through DropAI"):
-                response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it", img])
+                response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it in english", img])
                 st.success("Analysis done 👌")
                 st.toast('Hooray!', icon='🎉')
                 st.balloons()
