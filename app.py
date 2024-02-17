@@ -31,7 +31,6 @@ def main():
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv","XLSX"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
-    st.sidebar.divider()
     with tab1:
         if uploaded_file is None:
             st.info("Upload a .csv or .xlsx spreadsheet file to continue", icon="ℹ️")
