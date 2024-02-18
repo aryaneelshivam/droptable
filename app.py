@@ -26,6 +26,7 @@ def main():
     # the marquee container background color
     'background': "#ffffff",
     # the marquee text size
+    'font-family': 'poppins',
     'font-size': '30px',
     # the marquee text color
     "color": "#000000",
