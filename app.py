@@ -28,7 +28,7 @@ def main():
         #icons = ["house","book","phone"]
     #)
     st.title(":blue[Drop]Table")
-     st.write(
+    st.write(
         """![Static Badge](https://img.shields.io/badge/%20version-1.0.2-white)
         
         """
