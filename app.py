@@ -36,7 +36,7 @@ def main():
     # the marquee container line height
     'lineHeight': "35px",
     # the marquee duration
-    'animationDuration': '5s',
+    'animationDuration': '10s',
 })
 
     #selected = option_menu(
