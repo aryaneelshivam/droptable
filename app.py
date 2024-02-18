@@ -7,7 +7,6 @@ from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
 from PIL import Image
-from streamlit_marquee import streamlit_marquee
 
 
 st.set_page_config(
@@ -22,23 +21,6 @@ def load_data(file):
     return data
    
 def main():
-    streamlit_marquee(**{
-    # the marquee container background color
-    'background': "#ffffff",
-    # the marquee text size
-    'font-family': 'poppins',
-    'font-size': '100px',
-    # the marquee text color
-    "color": "#000000",
-    # the marquee text content
-    'content': 'Ai-powered business intelligence and data analytics visualization software 🚀',
-    # the marquee container width
-    'width': '100%',
-    # the marquee container line height
-    'lineHeight': "35px",
-    # the marquee duration
-    'animationDuration': '10s',
-})
 
     #selected = option_menu(
        # menu_title = None,
