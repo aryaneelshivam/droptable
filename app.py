@@ -24,11 +24,11 @@ def load_data(file):
 def main():
     streamlit_marquee(**{
     # the marquee container background color
-    'background': "#ffffff",
+    'background': "#000000",
     # the marquee text size
     'font-size': '12px',
     # the marquee text color
-    "color": "#000000",
+    "color": "#ffffff",
     # the marquee text content
     'content': 'here is custom marquee component~',
     # the marquee container width
