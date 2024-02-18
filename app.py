@@ -24,7 +24,7 @@ def load_data(file):
 def main():
     streamlit_marquee(**{
     # the marquee container background color
-    'background': "#ff0000",
+    'background': "#ffffff",
     # the marquee text size
     'font-size': '12px',
     # the marquee text color
