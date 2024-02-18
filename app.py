@@ -7,6 +7,8 @@ from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
 from PIL import Image
+from streamlit_marquee import streamlit_marquee
+
 
 st.set_page_config(
     page_title="DropTable",
@@ -20,6 +22,22 @@ def load_data(file):
     return data
    
 def main():
+    streamlit_marquee(**{
+    # the marquee container background color
+    'background': "#ff0000",
+    # the marquee text size
+    'font-size': '12px',
+    # the marquee text color
+    "color": "#ffffff",
+    # the marquee text content
+    'content': 'here is custom marquee component~',
+    # the marquee container width
+    'width': '600px',
+    # the marquee container line height
+    'lineHeight': "35px",
+    # the marquee duration
+    'animationDuration': '5s',
+})
     #selected = option_menu(
        # menu_title = None,
         #options = ["Home","DropAI", "About"],
