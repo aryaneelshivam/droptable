@@ -28,7 +28,7 @@ def main():
     # the marquee text size
     'font-size': '12px',
     # the marquee text color
-    "color": "#ffffff",
+    "color": "#000000",
     # the marquee text content
     'content': 'here is custom marquee component~',
     # the marquee container width
