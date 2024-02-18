@@ -7,6 +7,7 @@ from mitosheet.streamlit.v1 import spreadsheet
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
 from PIL import Image
+from streamlit_extras.app_logo import add_logo
 
 
 st.set_page_config(
@@ -21,6 +22,7 @@ def load_data(file):
     return data
    
 def main():
+    add_logo("http://placekitten.com/120/120")
 
     #selected = option_menu(
        # menu_title = None,
