@@ -6,4 +6,5 @@ mitosheet
 streamlit-option-menu
 google-generativeai
 Pillow
-streamlit-marquee
+streamlit-extras
+
