@@ -22,7 +22,22 @@ def load_data(file):
     return data
    
 def main():
-    streamlit_marquee(content='here is custom marquee component~')
+    streamlit_marquee(**{
+    # the marquee container background color
+    'background': "#ffffff",
+    # the marquee text size
+    'font-size': '12px',
+    # the marquee text color
+    "color": "#000000",
+    # the marquee text content
+    'content': 'here is custom marquee component~',
+    # the marquee container width
+    'width': '100%',
+    # the marquee container line height
+    'lineHeight': "35px",
+    # the marquee duration
+    'animationDuration': '5s',
+})
 
     #selected = option_menu(
        # menu_title = None,
