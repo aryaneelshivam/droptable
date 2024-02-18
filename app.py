@@ -29,6 +29,11 @@ def main():
     #)
     st.title(":blue[Drop]Table")
     st.subheader(":blue[Interactive] and :blue[dynamic] data analytics visualization dashboard")
+    st.write(
+        """![Static Badge](https://img.shields.io/badge/%20version-1.0.2-white)
+        
+        """
+    )
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv","XLSX"])
     tab1, tab2, tab3 = st.tabs(["Basic visualization", "DropAI","Advanced Interactive visualization",])
     with tab1:
