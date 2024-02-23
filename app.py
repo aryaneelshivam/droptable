@@ -180,7 +180,7 @@ def main():
             model = genai.GenerativeModel('gemini-pro-vision')
             with st.spinner("Sending and fetching data through DropAI"):
                 response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it in english", img])
-                    if response:
+                    if response is not None:
                         st.success("Analysis done 👌")
                         st.toast('Hooray!', icon='🎉')
                         st.balloons()
