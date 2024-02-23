@@ -179,15 +179,16 @@ def main():
             genai.configure(api_key=Google)
             model = genai.GenerativeModel('gemini-pro-vision')
             with st.spinner("Sending and fetching data through DropAI"):
-                if response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it in english", img]):
-                    st.success("Analysis done 👌")
-                    st.toast('Hooray!', icon='🎉')
-                    st.balloons()
-                    st.write(response.prompt_feedback)
-                    st.image(input)
-                    st.markdown(response.text)
-                else:
-                    st.write(response.prompt_feedback)
+                response = model.generate_content(["Read and analyse this graphs and state all the valuable business intelligence insights one can derive from it in english", img]):
+                    if response:
+                        st.success("Analysis done 👌")
+                        st.toast('Hooray!', icon='🎉')
+                        st.balloons()
+                        st.write(response.prompt_feedback)
+                        st.image(input)
+                        st.markdown(response.text)
+                    else:
+                        st.write(response.prompt_feedback)
             
 
 if __name__ == "__main__":
