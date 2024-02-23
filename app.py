@@ -183,9 +183,9 @@ def main():
                 st.success("Analysis done 👌")
                 st.toast('Hooray!', icon='🎉')
                 st.balloons()
+                st.write(response.prompt_feedback)
                 st.image(input)
                 st.markdown(response.text)
-                st.write(response.prompt_feedback)
 
 if __name__ == "__main__":
     main()
