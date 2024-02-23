@@ -8,6 +8,7 @@ from streamlit_option_menu import option_menu
 import google.generativeai as genai
 from PIL import Image
 from streamlit_extras.app_logo import add_logo
+import time 
 
 
 st.set_page_config(
@@ -180,15 +181,13 @@ def main():
             model = genai.GenerativeModel('gemini-pro-vision')
             with st.spinner("Sending and fetching data through DropAI"):
                 response = model.generate_content(["Analyse the graph and jot down important insights for data analysis", img])
-                if response is None:
-                    st.write(response.prompt_feedback)
-                else:
-                    st.success("Analysis done 👌")
-                    st.toast('Hooray!', icon='🎉')
-                    st.balloons()
-                    st.write(response.prompt_feedback)
-                    st.image(input)
-                    st.markdown(response.text)
+                time.sleep(5)
+                st.success("Analysis done 👌")
+                st.toast('Hooray!', icon='🎉')
+                st.balloons()
+                st.write(response.prompt_feedback)
+                st.image(input)
+                st.markdown(response.text)
             
 
 if __name__ == "__main__":
