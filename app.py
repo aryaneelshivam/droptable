@@ -185,6 +185,7 @@ def main():
                 st.balloons()
                 st.image(input)
                 st.markdown(response.text)
+                st.write(response.prompt_feedback)
 
 if __name__ == "__main__":
     main()
